@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * @author Daniel Haddadeen (2588731)
+ * *** GitHub Link: https://github.com/danielh281/Lab01-B *** 
  */
 public class Main {
     public static void main(String[] args) {
