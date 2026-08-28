@@ -11,38 +11,6 @@ public class CourseGrades implements Analyzable {
         grades = new GradedActivity[NUM_GRADES];
     }
     
-    public void setLab(GradedActivity aLab) {
-        grades[1] = aLab;
-    }
-    
-    public void setPassFailExam(PassFailExam aPassFailExam) {
-        grades[2] = aPassFailExam;
-    }
-    
-    public void setEssay(Essay anEssay) {
-        grades[3] = anEssay;
-    }
-    
-    public void setFinalExam(FinalExam aFinalExam) {
-        grades[4] = aFinalExam;
-    }
-
-    @Override
-    public String toString() {
-        String str = String.format(
-                "%s: %.1f %-30s: %c\n" 
-                + "%s Score: %.1f %-30s: %c\n" 
-                + "%s: %.1f %-30s: %c\n"
-                + "%s: %.1f %-30s: %c\n", 
-                "Lab Score", grades[1].getScore(), "Grade", grades[1].getGrade(),
-                "Pass/Fail Exam Score", grades[2].getScore(), "Grade", grades[2].getGrade(),
-                "Essay Score", grades[3].getScore(), "Grade", grades[3].getGrade(),
-                "Final Exam Score", grades[4].getScore(), "Grade", grades[4].getGrade()
-        );
-        
-        return str;
-    }
-    
     /**
      * Returns the average score of all the graded activities.
      * @return The average score of all the graded activities.
@@ -62,7 +30,7 @@ public class CourseGrades implements Analyzable {
      * @return The graded activity with the highest score
      */
     public GradedActivity getHighest() {
-        GradedActivity highest = grades[1];
+        GradedActivity highest = grades[0];
         
         for (GradedActivity grade : grades) {
             if (grade.getScore() > highest.getScore()) {
@@ -78,7 +46,7 @@ public class CourseGrades implements Analyzable {
      * @return The graded activity with the lowest score
      */
     public GradedActivity getLowest() {
-        GradedActivity lowest = grades[1];
+        GradedActivity lowest = grades[0];
         
         for (GradedActivity grade : grades) {
             if (grade.getScore() < lowest.getScore()) {
@@ -87,5 +55,42 @@ public class CourseGrades implements Analyzable {
         }
         
         return lowest;
+    }
+    
+    public void setLab(GradedActivity aLab) {
+        grades[0] = aLab;
+    }
+    
+    public void setPassFailExam(PassFailExam aPassFailExam) {
+        grades[1] = aPassFailExam;
+    }
+    
+    public void setEssay(Essay anEssay) {
+        grades[2] = anEssay;
+    }
+    
+    public void setFinalExam(FinalExam aFinalExam) {
+        grades[3] = aFinalExam;
+    }
+    
+    /**
+     * Returns a formatted string containing the scores and grades
+     * for each graded activity.
+     * @return 
+     */
+    @Override
+    public String toString() {
+        String str = String.format(
+                "%-20s: %.1f %s: %c\n" 
+                + "%-20s Score: %.1f %s: %c\n" 
+                + "%-20s: %.1f %s: %c\n"
+                + "%-20s: %.1f %s: %c\n", 
+                "Lab Score", grades[0].getScore(), "Grade", grades[0].getGrade(),
+                "Pass/Fail Exam Score", grades[1].getScore(), "Grade", grades[1].getGrade(),
+                "Essay Score", grades[2].getScore(), "Grade", grades[2].getGrade(),
+                "Final Exam Score", grades[3].getScore(), "Grade", grades[3].getGrade()
+        );
+        
+        return str;
     }
 }

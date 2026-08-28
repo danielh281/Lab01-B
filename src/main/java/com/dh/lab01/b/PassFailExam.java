@@ -1,7 +1,7 @@
 package com.dh.lab01.b;
 
 /**
- * @author 2588731
+ * @author Daniel Haddadeen (2588731)
  */
 public class PassFailExam extends PassFailActivity {
     private int numQuestions;
@@ -11,7 +11,10 @@ public class PassFailExam extends PassFailActivity {
     public PassFailExam(int questions, int missed, double minPassing) {
         super(minPassing);
         numQuestions = questions;
+        numMissed = missed;
         pointsEach = getPointsEach();
+        
+        setScore(100.0 - (pointsEach * numMissed));
     }
     
     /**

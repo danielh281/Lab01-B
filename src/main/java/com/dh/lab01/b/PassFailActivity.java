@@ -1,7 +1,7 @@
 package com.dh.lab01.b;
 
 /**
- * @author 2588731
+ * @author Daniel Haddadeen (2588731)
  */
 public class PassFailActivity extends GradedActivity {
     private double minPassingScore;

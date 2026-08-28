@@ -9,18 +9,21 @@ public class Essay extends GradedActivity {
     private double correctLength;
     private double content;
     
-    public Essay(double grammer, double spelling, double correctLength, double content) {
-        this.grammer = Math.clamp(grammer, 0, 30);
-        this.spelling = Math.clamp(spelling, 0, 20);
-        this.correctLength = Math.clamp(correctLength, 0, 20);
-        this.content = Math.clamp(content, 0, 30);
-    }
-    
+    /**
+     * Sets the score for grammar, spelling, correct length and content and also
+     * sets the global score for the essay by adding them up.
+     * @param gr The score for grammar
+     * @param sp The score for spelling
+     * @param len The score for correct length
+     * @param cnt The score for content
+     */
     public void setScore(double gr, double sp, double len, double cnt) {
         grammer = Math.clamp(gr, 0, 30);
         spelling = Math.clamp(sp, 0, 20);
         correctLength = Math.clamp(len, 0, 20);
         content = Math.clamp(cnt, 0, 30);
+        
+        super.setScore(grammer + spelling + correctLength + content);
     }
     
     public void setGrammer(double g) {
@@ -49,10 +52,5 @@ public class Essay extends GradedActivity {
 
     public double getCorrectLength() {
         return correctLength;
-    }
-    
-    @Override
-    public double getScore() {
-        return grammer + spelling + correctLength + content;
     }
 }

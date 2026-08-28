@@ -2,10 +2,10 @@ package com.dh.lab01.b;
 
 import java.util.Scanner;
 
-
-
+/**
+ * @author Daniel Haddadeen (2588731)
+ */
 public class Main {
-    
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
