@@ -81,10 +81,10 @@ public class CourseGrades implements Analyzable {
     @Override
     public String toString() {
         String str = String.format(
-                "%-20s: %.1f %s: %c\n" 
-                + "%-20s Score: %.1f %s: %c\n" 
-                + "%-20s: %.1f %s: %c\n"
-                + "%-20s: %.1f %s: %c\n", 
+                "%s %-10.1f %s: %c\n" 
+                + "%s: %-10.1f %s: %c\n" 
+                + "%s: %-10.1f %s: %c\n"
+                + "%s: %-10.1f %s: %c\n", 
                 "Lab Score", grades[0].getScore(), "Grade", grades[0].getGrade(),
                 "Pass/Fail Exam Score", grades[1].getScore(), "Grade", grades[1].getGrade(),
                 "Essay Score", grades[2].getScore(), "Grade", grades[2].getGrade(),
